@@ -1,6 +1,6 @@
 "use client"
 
-import { FC } from "react";
+import { FC, useState } from "react";
 import {
   Card,
   CardBody,
@@ -11,6 +11,7 @@ import { commonProps } from "@/types/common";
 
 export interface ServicesProps {}
 export const Services: FC<ServicesProps> = () => {
+  const [autoplay, setAutoplay] = useState(true);
 
   return (
     <div className="w-full h-full flex flex-col gap-15 items-center lg:py-0" id="services">
@@ -24,9 +25,11 @@ export const Services: FC<ServicesProps> = () => {
       <div className="hidden flex-col lg:flex lg:flex-row items-center mt-[50px] p-5 lg:p-0 justify-center gap-20">
         <Carousel 
           transition={{ duration: 2, delay: 2 }} 
-          autoplay
+          autoplay={autoplay}
           loop
           {...commonProps}
+          onMouseEnter={() => setAutoplay(false)}
+          onMouseLeave={() => setAutoplay(true)}
         >
           <div className="flex flex-col lg:flex lg:flex-row items-center justify-center gap-20">
             <Card className="w-full lg:w-[500px] h-full bg-[#515175] shadow-xl flex flex-col items-center justify-center" {...commonProps}>

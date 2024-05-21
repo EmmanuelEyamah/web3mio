@@ -33,11 +33,8 @@ const Page = ({ params }: { params: Types }) => {
   return (
     <div className="mx-auto container w-full">
       <div className="p-7 lg:p-20">
+        <TTypography label={name} fontSizeSmall="text-[26px]" fontSizeLarge="lg:text-[35px]" className="uppercase text-center z-[1000] mb-5"/>
         <div className="w-full rounded-bl-2xl rounded-br-2xl h-[600px] relative overflow-hidden flex flex-col items-center justify-center gap-6" style={{ backgroundImage: `url('${imageUrl}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
-          <TTypography label={name} fontSizeSmall="text-[26px]" fontSizeLarge="lg:text-[35px]" className="uppercase text-center z-[1000]"/>
-          <div className="h-36 w-36 rounded-full overflow-hidden border-[#10c8ff] border-2">
-            <img src="/assets/photo.png" className="w-full h-full object-cover z-100" alt="Photo" />
-          </div>
         </div>
 
         <TTypography 
