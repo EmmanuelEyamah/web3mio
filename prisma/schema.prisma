@@ -8,12 +8,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id       String @id @default(uuid()) @map("_id")
+  username String @unique
+  email    String @unique
+  password String
+  createdAt   DateTime  @default(now())
+}
+
 model Article {
   id          String    @id @default(uuid()) @map("_id")
   name       String
   short_desc       String
-  description       String
+  description       String[]
   imageUrl       String?
+  imagesUrl       String[]
+  link_text       String?
+  link_url       String?
   createdAt   DateTime  @default(now())
 }
 
@@ -21,7 +32,10 @@ model Documentation {
   id          String    @id @default(uuid()) @map("_id")
   name       String
   short_desc       String
-  description       String
+  description       String[]
   imageUrl       String?
+  imagesUrl       String[]
+  link_text       String?
+  link_url       String?
   createdAt   DateTime  @default(now())
 }
