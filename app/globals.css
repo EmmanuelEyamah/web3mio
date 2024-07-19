@@ -2,31 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 .custom-container {
-    max-width: 1600px;
+  max-width: 1600px;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .logo {
-    color: #FFF;
-    font-family: Lora;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-shadow: 2px 3px 1px rgb(83, 67, 141);
+  color: #fff;
+  font-family: Lora;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-shadow: 2px 3px 1px rgb(83, 67, 141);
 }
 
 .logo_span {
-    color: #F00;
-    font-family: Lora;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  color: #f00;
+  font-family: Lora;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #515175 transparent; /* For Firefox */
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #515175;
+  border-radius: 10px;
+  border: 2px solid transparent;
 }

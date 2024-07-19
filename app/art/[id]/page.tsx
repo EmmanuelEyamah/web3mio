@@ -55,8 +55,6 @@ const Page = ({ params }: { params: Types }) => {
   const { name, description, imageUrl, imagesUrl, link_text, link_url } =
     article;
 
-  console.log(imagesUrl);
-
   return (
     <div className="mx-auto container w-full">
       <div className="p-7 lg:p-20">

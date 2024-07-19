@@ -18,6 +18,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { commonProps } from "../../../types/common";
 import { Session } from "next-auth";
+import { signOut } from "next-auth/react";
 
 const links = [
   {
@@ -72,7 +73,7 @@ const profileMenuItems = [
   },
   {
     label: "Sign Out",
-    route: "/logout",
+    route: "",
   },
 ];
 
@@ -80,6 +81,11 @@ function ProfileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  const handleSignOut = () => {
+    closeMenu();
+    signOut();
+  };
 
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
@@ -112,7 +118,7 @@ function ProfileMenu() {
           return (
             <MenuItem
               key={label}
-              onClick={closeMenu}
+              onClick={isLastItem ? handleSignOut : closeMenu}
               className={`flex items-center gap-2 rounded ${
                 isLastItem
                   ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
@@ -127,7 +133,7 @@ function ProfileMenu() {
                 color={isLastItem ? "red" : "inherit"}
                 {...commonProps}
               >
-                <Link href={route}>{label}</Link>
+                {isLastItem ? label : <Link href={route}>{label}</Link>}
               </Typography>
             </MenuItem>
           );

@@ -6,8 +6,8 @@ import { UploadDropzone } from "../../types/uploadthing";
 import { Space } from "antd";
 import React, { useState, useRef } from "react";
 import Image from "next/image";
-import { createDocs } from "../actions/docActions";
 import { toast } from "react-toastify";
+import { createDocs } from "../actions/docActions";
 
 const CreateDoc = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -22,11 +22,18 @@ const CreateDoc = () => {
       fileKey: string;
     }[]
   >([]);
+  const [imagesUrls, setImagesUrls] = useState<
+    {
+      fileUrl: string;
+      fileKey: string;
+    }[]
+  >([]);
   const [loading, setLoading] = useState(false);
 
   const handleSave = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const image = imageUrls.map((image) => image.fileUrl).join(", ");
+    const images = imagesUrls.map((image) => image.fileUrl);
     setLoading(true);
 
     const formData = {
@@ -34,11 +41,10 @@ const CreateDoc = () => {
       short_desc: shortDescription,
       description: descriptions,
       imageUrl: image,
-      imagesUrl: [],
+      imagesUrl: images,
       link_text: linkText,
       link_url: linkUrl,
     };
-
     await createDocs(formData);
     toast.success("Docs created successfully");
     setLoading(false);
@@ -47,6 +53,7 @@ const CreateDoc = () => {
     setShortDescription("");
     setDescriptions([""]);
     setImageUrls([]);
+    setImagesUrls([]);
     setLinkText("");
     setLinkUrl("");
 
@@ -76,6 +83,17 @@ const CreateDoc = () => {
       <ul>
         {imageUrls.map((image) => (
           <li key={image.fileUrl} className="mt-2">
+            <Image src={image.fileUrl} alt="image" width={150} height={150} />
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+  const imgsList = (
+    <>
+      <ul>
+        {imagesUrls.map((image) => (
+          <li key={image.fileUrl} className="mt-2 flex gap-2">
             <Image src={image.fileUrl} alt="image" width={150} height={150} />
           </li>
         ))}
@@ -221,7 +239,6 @@ const CreateDoc = () => {
             crossOrigin={undefined}
           />
         </Space>
-
         <Space direction="vertical" className="w-full lg:w-[400px]">
           <Typography
             className="text-[#F7F7FC] font-normal text-[16px] lg:text-[20px]"
@@ -248,7 +265,31 @@ const CreateDoc = () => {
           />
           {imgList}
         </Space>
+        <Space direction="vertical" className="w-full lg:w-[400px]">
+          <Typography
+            className="text-[#F7F7FC] font-normal text-[16px] lg:text-[20px]"
+            {...commonProps}
+          >
+            Images
+          </Typography>
+          <UploadDropzone
+            endpoint="imagesUploader"
+            onClientUploadComplete={(res) => {
+              const newImages = res.map((image) => ({
+                fileUrl: image.url,
+                fileKey: image.key,
+              }));
 
+              setImagesUrls((prevImages) => [...prevImages, ...newImages]);
+
+              toast.success("Images Uploaded Successful");
+            }}
+            onUploadError={(error: Error) => {
+              toast.error(`ERROR! ${error.message}`);
+            }}
+          />
+          {imgsList}
+        </Space>
         <Button
           {...commonProps}
           className="bg-[#515175] w-[200px]"

@@ -3,17 +3,22 @@
 import { TTypography } from "../../components/base/Typography";
 import { Types } from "@/types/types";
 import { useState, useEffect } from "react";
+import AutoPlay from "@/app/components/Carousel";
 import { getDocumentationById } from "@/app/actions/docActions";
+
+type Documentation = {
+  id: string;
+  name: string;
+  description: string[];
+  imageUrl: string | null;
+  imagesUrl: string[];
+  link_text: string;
+  link_url: string;
+};
 
 const Page = ({ params }: { params: Types }) => {
   const { id } = params;
-  const [article, setArticle] = useState<{
-    name: string;
-    description: string[];
-    imageUrl: string | null;
-    link_text: string;
-    link_url: string;
-  } | null>(null);
+  const [article, setArticle] = useState<Documentation | null>(null);
 
   useEffect(() => {
     if (id) {
@@ -24,7 +29,20 @@ const Page = ({ params }: { params: Types }) => {
   const fetchArticle = async (articleId: string) => {
     try {
       const fetchedArticle = await getDocumentationById(articleId);
-      setArticle(fetchedArticle);
+      if (fetchedArticle) {
+        const mappedArticle: Documentation = {
+          id: fetchedArticle.id,
+          name: fetchedArticle.name,
+          description: fetchedArticle.description,
+          imageUrl: fetchedArticle.imageUrl,
+          imagesUrl: fetchedArticle.imagesUrl,
+          link_text: fetchedArticle.link_text || "",
+          link_url: fetchedArticle.link_url || "",
+        };
+        setArticle(mappedArticle);
+      } else {
+        console.error("Fetched article is null");
+      }
     } catch (error) {
       console.error("Error fetching article:", error);
     }
@@ -34,7 +52,8 @@ const Page = ({ params }: { params: Types }) => {
     return <div>Loading...</div>;
   }
 
-  const { name, description, imageUrl, link_text, link_url } = article;
+  const { name, description, imageUrl, imagesUrl, link_text, link_url } =
+    article;
 
   return (
     <div className="mx-auto container w-full">
@@ -61,6 +80,10 @@ const Page = ({ params }: { params: Types }) => {
           className="mt-10"
           label={description}
         />
+
+        <div className="mt-7">
+          <AutoPlay imagesUrl={imagesUrl} />
+        </div>
 
         <div className="mt-[40px]">
           <a

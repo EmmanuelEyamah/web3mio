@@ -53,6 +53,7 @@ const CreateDoc = () => {
     setShortDescription("");
     setDescriptions([""]);
     setImageUrls([]);
+    setImagesUrls([]);
     setLinkText("");
     setLinkUrl("");
 
