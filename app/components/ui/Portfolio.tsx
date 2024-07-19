@@ -115,7 +115,7 @@ export const Portfolio: FC<PortfolioProps> = ({ articles, docs }) => {
                 {value === "article" && (
                   <div className="flex flex-col gap-10 mt-8 overflow-y-auto h-full custom-scrollbar max-h-[1250px]">
                     {articles.map((article, index) => (
-                      <div className="h-[400px]" key={index}>
+                      <div className="h-full lg:h-[400px]" key={index}>
                         <Card
                           className="w-full max-w-[55rem] bg-[#515175] shadow-xl flex flex-col lg:flex lg:flex-row gap-0 lg:gap-15"
                           {...commonProps}
@@ -171,7 +171,7 @@ export const Portfolio: FC<PortfolioProps> = ({ articles, docs }) => {
                 {value === "documentation" && (
                   <div className="flex flex-col gap-10 mt-8 overflow-y-auto h-full custom-scrollbar max-h-[1250px]">
                     {docs.map((doc, index) => (
-                      <div className="h-[400px]" key={index}>
+                      <div className="h-full lg:h-[400px]" key={index}>
                         <Card
                           className="w-full max-w-[55rem] bg-[#515175] shadow-xl flex flex-col lg:flex lg:flex-row gap-0 lg:gap-15"
                           {...commonProps}
