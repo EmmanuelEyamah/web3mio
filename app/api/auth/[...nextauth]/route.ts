@@ -4,6 +4,7 @@ import { compare } from "bcrypt";
 import { prisma } from "@/utils/prisma";
 
 const handler = NextAuth({
+  secret: process.env.NEXTAUTH_SECRET as string,
   session: {
     strategy: "jwt",
   },
