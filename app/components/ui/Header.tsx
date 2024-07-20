@@ -84,7 +84,6 @@ function ProfileMenu() {
 
   const handleSignOut = () => {
     closeMenu();
-    signOut();
   };
 
   return (
@@ -143,10 +142,8 @@ function ProfileMenu() {
   );
 }
 
-export interface HeaderProps {
-  session: Session | null;
-}
-export const Header: FC<HeaderProps> = ({ session }) => {
+export interface HeaderProps {}
+export const Header: FC<HeaderProps> = () => {
   const [openNav, setOpenNav] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
@@ -195,7 +192,7 @@ export const Header: FC<HeaderProps> = ({ session }) => {
         </Typography>
         <div className="hidden gap-12 lg:flex">
           <NavList />
-          {session && <ProfileMenu />}
+          {/* {session && <ProfileMenu />} */}
         </div>
         <IconButton
           variant="text"
@@ -210,9 +207,9 @@ export const Header: FC<HeaderProps> = ({ session }) => {
             <Bars3Icon className="h-6 w-6" strokeWidth={2} />
           )}
         </IconButton>
-        <div className="ml-[20px] block lg:hidden">
+        {/* <div className="ml-[20px] block lg:hidden">
           {session && <ProfileMenu />}
-        </div>
+        </div> */}
       </div>
       <Collapse open={openNav}>
         <NavList />
