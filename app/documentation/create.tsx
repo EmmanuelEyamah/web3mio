@@ -239,6 +239,7 @@ const CreateDoc = () => {
             crossOrigin={undefined}
           />
         </Space>
+
         <Space direction="vertical" className="w-full lg:w-[400px]">
           <Typography
             className="text-[#F7F7FC] font-normal text-[16px] lg:text-[20px]"
@@ -265,6 +266,7 @@ const CreateDoc = () => {
           />
           {imgList}
         </Space>
+
         <Space direction="vertical" className="w-full lg:w-[400px]">
           <Typography
             className="text-[#F7F7FC] font-normal text-[16px] lg:text-[20px]"
