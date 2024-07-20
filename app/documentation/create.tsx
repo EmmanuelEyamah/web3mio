@@ -6,23 +6,14 @@ import { UploadDropzone } from "../../types/uploadthing";
 import { Space } from "antd";
 import React, { useState, useRef } from "react";
 import Image from "next/image";
-import { toast } from "react-toastify";
 import { createDocs } from "../actions/docActions";
 
 const CreateDoc = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [projectName, setProjectName] = useState("");
-  const [linkText, setLinkText] = useState("");
-  const [linkUrl, setLinkUrl] = useState("");
   const [shortDescription, setShortDescription] = useState("");
-  const [descriptions, setDescriptions] = useState<string[]>([""]);
+  const [description, setDescription] = useState("");
   const [imageUrls, setImageUrls] = useState<
-    {
-      fileUrl: string;
-      fileKey: string;
-    }[]
-  >([]);
-  const [imagesUrls, setImagesUrls] = useState<
     {
       fileUrl: string;
       fileKey: string;
@@ -33,49 +24,26 @@ const CreateDoc = () => {
   const handleSave = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const image = imageUrls.map((image) => image.fileUrl).join(", ");
-    const images = imagesUrls.map((image) => image.fileUrl);
     setLoading(true);
 
     const formData = {
       name: projectName,
       short_desc: shortDescription,
-      description: descriptions,
+      description,
       imageUrl: image,
-      imagesUrl: images,
-      link_text: linkText,
-      link_url: linkUrl,
     };
+
     await createDocs(formData);
-    toast.success("Docs created successfully");
     setLoading(false);
 
     setProjectName("");
     setShortDescription("");
-    setDescriptions([""]);
+    setDescription("");
     setImageUrls([]);
-    setImagesUrls([]);
-    setLinkText("");
-    setLinkUrl("");
 
     if (formRef.current) {
       formRef.current.reset();
     }
-  };
-
-  const addDescriptionField = () => {
-    setDescriptions([...descriptions, ""]);
-  };
-
-  const removeDescriptionField = (index: number) => {
-    const newDescriptions = [...descriptions];
-    newDescriptions.splice(index, 1);
-    setDescriptions(newDescriptions);
-  };
-
-  const handleDescriptionChange = (index: number, value: string) => {
-    const newDescriptions = [...descriptions];
-    newDescriptions[index] = value;
-    setDescriptions(newDescriptions);
   };
 
   const imgList = (
@@ -83,17 +51,6 @@ const CreateDoc = () => {
       <ul>
         {imageUrls.map((image) => (
           <li key={image.fileUrl} className="mt-2">
-            <Image src={image.fileUrl} alt="image" width={150} height={150} />
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-  const imgsList = (
-    <>
-      <ul>
-        {imagesUrls.map((image) => (
-          <li key={image.fileUrl} className="mt-2 flex gap-2">
             <Image src={image.fileUrl} alt="image" width={150} height={150} />
           </li>
         ))}
@@ -239,7 +196,6 @@ const CreateDoc = () => {
             crossOrigin={undefined}
           />
         </Space>
-
         <Space direction="vertical" className="w-full lg:w-[400px]">
           <Typography
             className="text-[#F7F7FC] font-normal text-[16px] lg:text-[20px]"
@@ -266,7 +222,6 @@ const CreateDoc = () => {
           />
           {imgList}
         </Space>
-
         <Space direction="vertical" className="w-full lg:w-[400px]">
           <Typography
             className="text-[#F7F7FC] font-normal text-[16px] lg:text-[20px]"
