@@ -31,6 +31,7 @@ const page = async () => {
     },
   });
 
+
   return (
     <div>
       <Hero />
@@ -39,6 +40,6 @@ const page = async () => {
       <About />
     </div>
   );
-}
+};
 
-export default page
+export default page;

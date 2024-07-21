@@ -32,6 +32,7 @@ export const Portfolio: FC<PortfolioProps> = ({ articles, docs }) => {
     setMounted(true);
   }, []);
 
+
   const data = [
     {
       label: "Article",

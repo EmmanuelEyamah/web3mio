@@ -19,14 +19,14 @@ const page = async () => {
 
   return (
     <div className="min-h-screen gap-5 lg:gap-10 flex flex-col w-full mx-auto container items-center justify-start p-5 lg:p-20">
-      <TTypography label="Documentation"/>
+      <TTypography label="Documentation" />
 
       <div className="flex flex-col-reverse lg:flex lg:flex-row items-start gap-5">
         <CreateDoc />
-        <ViewDoc docs={docs}/>
+        <ViewDoc docs={docs} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
