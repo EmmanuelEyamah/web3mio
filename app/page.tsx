@@ -5,7 +5,8 @@ import { Portfolio } from "./components/ui/Portfolio";
 import { About } from "./components/ui/About";
 
 const page = async () => {
-  const articles = await prisma.article.findMany({
+  // Fetch the latest articles and docs
+  const articlesPromise = prisma.article.findMany({
     select: {
       name: true,
       id: true,
@@ -18,7 +19,7 @@ const page = async () => {
     },
   });
 
-  const docs = await prisma.documentation.findMany({
+  const docsPromise = prisma.documentation.findMany({
     select: {
       name: true,
       id: true,
@@ -31,6 +32,7 @@ const page = async () => {
     },
   });
 
+  const [articles, docs] = await Promise.all([articlesPromise, docsPromise]);
 
   return (
     <div>
