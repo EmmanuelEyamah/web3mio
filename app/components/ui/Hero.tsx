@@ -30,15 +30,15 @@ export const Hero: FC<HeroProps> = () => {
           <div className="w-[220px] lg:w-[300px] h-1 bg-[#fff] mb-7 lg:mb-10"></div>
           <Typography
             className="text-[#F7F7FC] text-[16px] lg:text-[22px]"  {...commonProps}>
-            Hi There!
+            Hello There!
           </Typography>
           <Typography
             className="text-[#515175] text-[22px] lg:text-[47px]"  {...commonProps}>
-            Welcome to my Portfolio
+            Do You Know That
           </Typography>
           <Typography
             className="text-[#F7F7FC] text-[20px] lg:text-[37px]"  {...commonProps}>
-            When They Struggle to Understand, They Fail To Use.
+            When They Struggle To Understand/Use, Your Ship May Not Sail.
           </Typography>
           <Typography
               className="text-[#F7F7FCB3] font-normal text-[16px] lg:text-[24px] w-full"  {...commonProps}>
