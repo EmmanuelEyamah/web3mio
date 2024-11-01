@@ -38,11 +38,11 @@ export const Hero: FC<HeroProps> = () => {
           </Typography>
           <Typography
             className="text-[#F7F7FC] text-[20px] lg:text-[37px]"  {...commonProps}>
-            I am Mayowa Olatunji, a web3 Technical Writer.
+            When They Struggle to Understand, They Fail To Use.
           </Typography>
           <Typography
               className="text-[#F7F7FCB3] font-normal text-[16px] lg:text-[24px] w-full"  {...commonProps}>
-              I specialize in distilling the complexity of web3 technologies into clear, accessible content that fosters seamless communication between projects and their respective audiences.
+         But Mayowa Olatunji will only create INTUITIVE & EFFICIENT Technical content/Docs that seamlessly onboard and glue web3 natives to your products.  
           </Typography>
           <Space size={15} className="mt-4">
             <Button 
