@@ -63,7 +63,7 @@ export const About: FC<AboutProps> = () => {
               Excellent with graphics software, including Figma, Adobe
               Illustrator, Photoshop, Microsoft Visio, and Canva. Database
               software, CMS/LMS, and API documentation software such as Postman
-              and Swagger. <br /> Documentation: Docs-as-code Documentation,
+              and Swagger. <br /> <br /> Documentation: Docs-as-code Documentation,
               Document permission & source Control, AP Style, Knowledge-base
               Management, intuitive UX writing, on-chain & 0ff-chain data
               analysis. <br /> <br />
