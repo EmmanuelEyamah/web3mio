@@ -103,7 +103,7 @@ export const Services: FC<ServicesProps> = () => {
                   The essence of user profiling in creating technical content
                   and documentation lies in tailoring information to meet the
                   specific needs, preferences, and proficiency levels of the
-                  target audience. By thoroughly understanding the
+                  target audience.  <br /> By thoroughly understanding the
                   characteristics, knowledge levels, and requirements of users,
                   I can craft content that is not only technically accurate but
                   also highly user-centric. This approach ensures that the
@@ -145,11 +145,11 @@ export const Services: FC<ServicesProps> = () => {
                   Technical content marketing is the strategic integration of
                   technical writing and marketing, leveraging content to engage
                   and educate a target audience about complex technical
-                  subjects. This approach not only communicates technical
+                  subjects.  <br /> This approach not only communicates technical
                   details effectively but also aligns with broader marketing
                   strategies, ensuring that the content resonates with the
                   target audience and contributes to overall business
-                  objectives..
+                  objectives.
                 </Typography>
               </CardBody>
             </Card>
@@ -181,13 +181,14 @@ export const Services: FC<ServicesProps> = () => {
                   className="text-[#F7F7FCB3] text-[16px] text-center"
                 >
                   In a web3 technical writing role, a profound understanding of
-                  Web3 technologies is paramount for effectively communicating
+                  Web3 technologies are paramount for effectively communicating
                   the intricacies of decentralized and blockchain-based
                   frameworks. As Web3 represents a transformative shift in
                   internet dynamics, a deep grasp of the fundamental concepts is
                   needed to articulate their implications and applications
-                  clearly, My proficiency in Web3 technical content writing,
-                  coupled with a background in web development, equips me with a
+                  clearly.  <br />  <br />
+                  My proficiency in Web3 technical content writing,
+                  coupled with a background in blockchain development, equips me with a
                   unique skill set to produce documentation that not only
                   elucidates the complexities of decentralized and blockchain
                   frameworks but also guides users and developers seamlessly.
@@ -231,7 +232,7 @@ export const Services: FC<ServicesProps> = () => {
               organizations. As a professional with a proven track record in
               stellar communication, I deliver outstanding Articles, Tutorials,
               User manuals, System & API documentation, white papers, and guides
-              that onboard, inform, and enhance end-users experience.
+              that onboard, inform, and enhance end-users' experience.
             </Typography>
           </CardBody>
         </Card>
