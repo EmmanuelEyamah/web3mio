@@ -34,15 +34,15 @@ export const Hero: FC<HeroProps> = () => {
           </Typography>
           <Typography
             className="text-[#515175] text-[22px] lg:text-[47px]"  {...commonProps}>
-            Do You Know That
+            Did you know?
           </Typography>
           <Typography
             className="text-[#F7F7FC] text-[20px] lg:text-[37px]"  {...commonProps}>
-            When They Struggle To Understand/Use, Your Ship May Not Sail.
+           If they struggle to understand/use your "Incredible" product, they choose those I write for.
           </Typography>
           <Typography
               className="text-[#F7F7FCB3] font-normal text-[16px] lg:text-[24px] w-full"  {...commonProps}>
-         But Mayowa Olatunji will only create INTUITIVE & EFFICIENT Technical content/Docs that seamlessly onboard and glue web3 natives to your products.  
+          Because Mayowa Olatunji only creates Intuitive & Efficient Technical Content/Docs that seamlessly onboard and glue web3 natives to your products.  
           </Typography>
           <Space size={15} className="mt-4">
             <Button 
