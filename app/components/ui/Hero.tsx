@@ -38,7 +38,7 @@ export const Hero: FC<HeroProps> = () => {
           </Typography>
           <Typography
             className="text-[#F7F7FC] text-[20px] lg:text-[37px]"  {...commonProps}>
-           If they struggle to understand/use your "Incredible" product, they choose those I write for.
+           If They Struggle To Understand/Use Your "Incredible" Product, They Choose Those I Write For.
           </Typography>
           <Typography
               className="text-[#F7F7FCB3] font-normal text-[16px] lg:text-[24px] w-full"  {...commonProps}>
