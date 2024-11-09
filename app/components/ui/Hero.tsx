@@ -37,11 +37,11 @@ export const Hero: FC<HeroProps> = () => {
             Did you know?
           </Typography>
           <Typography
-            className="text-[#F7F7FC] text-[20px] lg:text-[37px]"  {...commonProps}>
+            className="text-[#F7F7FC] text-[19px] lg:text-[37px]"  {...commonProps}>
            If They Struggle To Understand/Use Your "Incredible" Product, They Choose Those I Write For.
           </Typography>
           <Typography
-              className="text-[#F7F7FCB3] font-normal text-[16px] lg:text-[24px] w-full"  {...commonProps}>
+              className="text-[#F7F7FCB3] font-normal text-[14px] lg:text-[24px] w-full"  {...commonProps}>
           Because Mayowa Olatunji only creates Intuitive & Efficient Technical Content/Docs that seamlessly onboard and glue web3 natives to your products.  
           </Typography>
           <Space size={15} className="mt-4">
